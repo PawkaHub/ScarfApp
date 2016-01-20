@@ -1,0 +1,44 @@
+//Dish Time
+.dish-time {
+	@include full(0);
+	@include transition($all);
+	opacity: 0;
+	pointer-events: none;
+	&.active {
+		opacity: 1;
+		pointer-events: auto;
+	}
+	.time-dragger {
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		height: 60px;
+		line-height: 60px;
+		&.active {
+			.time-dragger-background {
+				@include transform(scale3d(1,1,1));
+			}
+			.time-dragger-label {
+				@include transform(scale3d(0.5,0.5,1));
+			}
+		}
+		.time-dragger-background {
+			@include full(0);
+			right: -25%;
+			left: -25%;
+			background-color: transparentize(#fafafa,0.3);
+			@include transition($all);
+			@include transform(scale3d(1.5,1.5,1.5));
+		}
+		.time-dragger-label {
+			@include full(0);
+			right: -25%;
+			left: -25%;
+			font-size: 20px;
+			color: transparentize(#333,0.5);
+			text-align: center;
+			@include transition($all);
+		}
+	}
+}

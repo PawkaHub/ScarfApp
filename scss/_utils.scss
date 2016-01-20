@@ -1,0 +1,103 @@
+//Mixins
+@mixin full ($index) {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: $index;
+}
+
+@mixin top ($top) {
+	@include full(0);
+	bottom: auto;
+	top: $top;
+}
+
+@mixin bottom ($bottom) {
+	@include full(0);
+	top: auto;
+	bottom: $bottom;
+}
+
+@mixin tap {
+	position: relative;
+	&:after {
+		content: '';
+		position: absolute;
+		top: -10px;
+		right: -10px;
+		bottom: -10px;
+		left: -10px;
+		//background-color: red;
+		//opacity: 0.5;
+	}
+}
+
+@mixin icon ($size) {
+	font-size: $size;
+	height: $size;
+	width: $size;
+	line-height: $size;
+	text-align: center;
+}
+
+@mixin button ($height,$bg,$color) {
+	height: $height;
+	line-height: $height;
+	text-align: center;
+	background-color: $bg;
+	color: $color;
+}
+
+@mixin cover ($image) {
+	background-image: url($image);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+}
+
+@mixin contain ($image) {
+	background-image: url($image);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+}
+
+@mixin vertCenter {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	left: 0;
+	margin: 0 auto 0 auto;
+}
+
+@mixin dots {
+	&:before {
+		content: '';
+		@include full(0);
+		background-color: black;
+		pointer-events: none;
+		opacity: 0.4;
+	}
+}
+
+@mixin scrollFix {
+	//Scroll Fixes
+	.scroll, .list {
+	  position: absolute;
+	  top: 0;
+	  right: 0;
+	  bottom: 0;
+	  left: 0;
+	  z-index: 1;
+	  background-color: transparent;
+	}
+	.list {
+		overflow: visible;
+		padding-bottom: 100px;
+		&:last-child {
+			margin-bottom: 20px;
+		}
+	}
+}

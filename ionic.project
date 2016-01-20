@@ -1,0 +1,13 @@
+{
+  "name": "Dish",
+  "app_id": "",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*",
+    "scss/*"
+  ]
+}

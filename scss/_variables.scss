@@ -1,0 +1,20 @@
+//Colors
+$brandTint: #2980b9 !default;
+$secondTint: #f5f5f5 !default;
+$positive: $brandTint !default;
+
+//Animation
+$all: all 300ms ease-in-out;
+$doubleScale: scale3d(2,2,1);
+$normalScale: scale3d(1,1,1);
+$halfScale: scale3d(0.5,0.5,1);
+$hidden: scale3d(0,0,0);
+$torigin: translate3d(0,0,0);
+$sorigin: scale3d(1,1,1);
+
+//Translate Positions
+$up: translate3d(0,-100%,0);
+$right: translate3d(100%,0,0);
+$down: translate3d(0,100%,0);
+$left: translate3d(-100%,0,0);
+$rotate: rotate(45deg);

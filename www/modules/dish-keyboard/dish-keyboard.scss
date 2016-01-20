@@ -1,0 +1,13 @@
+//Dish Drawer
+.dish-keyboard {
+  @include transition($all);
+  @include transform($down);
+  @include bottom(0);
+  @include contain('../modules/dish-keyboard/dish-keyboard.jpg');
+  z-index: 99999999;
+  width: 100%;
+  height: 253px;
+  &.active {
+    @include transform($torigin);
+  }
+}

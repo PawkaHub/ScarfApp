@@ -1,0 +1,21 @@
+//Reset
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-size: 16px;
+	@include full(0);
+	background-position: 0% 0%;
+	background-color: $secondTint;
+	font-family: 'visby-light';
+}
+
+input[disabled], select[disabled], textarea[disabled], input[readonly]:not(.cloned-text-input), textarea[readonly]:not(.cloned-text-input), select[readonly] {
+	background-color: transparent;
+}
+
+//Handle platform specific styles that we don't want
+.platform-ios.platform-cordova:not(.fullscreen) .has-header, .platform-ios.platform-cordova:not(.fullscreen) .bar-subheader {
+	top: 0;
+}

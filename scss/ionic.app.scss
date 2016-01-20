@@ -1,0 +1,234 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+//Bourbon Mixins
+@import 'bourbon/bourbon';
+
+//Ionic Fonts
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+//Ionic Library
+@import "www/lib/ionic/scss/ionic";
+
+//Generic Styles
+@import 'variables';
+@import 'utils';
+@import 'fonts';
+@import 'reset';
+@import 'animations';
+@import 'hours';
+
+//Modules
+@import 'www/modules/dish-cards/dish-cards';
+@import 'www/modules/dish-alert/dish-alert';
+@import 'www/modules/dish-keyboard/dish-keyboard';
+@import 'www/modules/dish-drawer/dish-drawer';
+@import 'www/modules/dish-sheet/dish-sheet';
+@import 'www/modules/dish-photo/dish-photo';
+@import 'www/modules/dish-gallery/dish-gallery';
+@import 'www/modules/dish-input/dish-input';
+@import 'www/modules/dish-more/dish-more';
+@import 'www/modules/dish-time/dish-time';
+@import 'www/modules/dish-map/dish-map';
+
+//Views
+@import 'www/views/dish-home/dish-home';
+@import 'www/views/dish-signup/dish-signup';
+
+//Debug
+.version-debug {
+	color: #fff;
+	font-size: 10px;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin-left: -60px;
+}
+
+//Create Card
+.modal-card-post {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 9999;
+	height: 50px;
+	line-height: 62px;
+	text-align: center;
+	background-color: $brandTint;
+	color: #fff;
+	opacity: 0;
+	@include transition($all);
+	@include transform($up);
+	&.active {
+		opacity: 1;
+		@include transform($torigin);
+	}
+}
+.modal-card-overlay {
+	@include transition($all);
+	@include full(99);
+	background-color: transparentize(#111,0.1);
+	opacity: 0;
+	pointer-events: none;
+	input, textarea {
+		pointer-events: none;
+	}
+	&.active {
+		opacity: 1;
+		.modal-card {
+			@include transform($torigin);
+			pointer-events: auto;
+			input, textarea {
+				pointer-events: auto;
+			}
+		}
+	}
+	.modal-card-icon {
+		height: 60px;
+		line-height: 80px;
+		width: 60px;
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding-right: 10px;
+		text-align: right;
+		font-size: 30px;
+		color: #fff;
+		&:after {
+			content: '\f404';
+			font-family: 'ionicons';
+		}
+	}
+	.modal-card {
+		background-color: #fff;
+		border-radius: 2px;
+		position: absolute;
+		top: 60px;
+		right: 10px;
+		bottom: 10px;
+		left: 10px;
+		box-shadow: 1px 0px 10px rgba(0,0,0,0.3);
+		@include transition($all);
+		@include transform(translate3d(0,150%,0));
+		pointer-events: none;
+		overflow: hidden;
+		.modal-card-title {
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			background-color: #eaeaea;
+			color: #333;
+			opacity: 1;
+		}
+		.coming-soon-notice {
+			padding: 10px;
+			color: #333;
+		}
+		.modal-card-button-title {
+			position: absolute;
+			top: 0;
+			right: 80px;
+			left: 0;
+			z-index: 8;
+			.dish-input {
+				@include border-top-left-radius(4px);
+			}
+		}
+		.modal-card-button-price {
+			position: absolute;
+			top: 0;
+			right: 0;
+			left: auto;
+			width: 80px;
+			z-index: 9;
+			@include button(40px,$brandTint,#fff);
+			.modal-card-button-price-input {
+				background-color: transparent;
+				color: #fff;
+				height: inherit;
+				padding: 10px;
+				line-height: 20px;
+				text-align: center;
+				width: inherit;
+				input {
+					text-align: center;
+					padding: 0;
+					color: #fff;
+					&::-webkit-input-placeholder {
+						color: #fff;
+					}
+				}
+			}
+		}
+		.modal-card-button-options {
+			@include top(40px);
+			z-index: 1;
+			@include display(flex);
+			height: 30px;
+			line-height: 30px;
+			background-color: $secondTint;
+			font-size: 12px;
+			color: #111;
+			.modal-card-button-option {
+				@include flex(1);
+				text-align: center;
+			}
+		}
+		.modal-card-content {
+			top: 70px;
+			bottom: 200px;
+			height: 100%;
+			pointer-events: none;
+			.scroll {
+				@include full(0);
+				height: 100%;
+			}
+		}
+		.modal-card-button {
+			@include bottom(0);
+			@include button(40px,#fafafa,transparentize(#333,0.3));
+		}
+		.modal-card-photo {
+			height: 200px;
+			background-color: #111;
+			position: absolute;
+			top: 70px;
+			right: 0;
+			left: 0;
+		}
+		.dish-input {
+			box-shadow: none;
+			border: none;
+			border-top: 1px solid rgba(0,0,0,0.1);
+			border-radius: 0;
+			margin: 0;
+			pointer-events: auto;
+		}
+		.dish-text-holder {
+			height: 490px;
+			padding-top: 200px;
+		}
+		.dish-text {
+			box-shadow: none;
+			border: none;
+			border-top: 1px solid rgba(0,0,0,0.1);
+			height: 200px;
+			opacity: 1;
+		}
+	}
+}

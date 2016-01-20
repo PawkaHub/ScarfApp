@@ -1,0 +1,7 @@
+<div class="dish-map {{vm.mapActive() ? 'active' : ''}}">
+	<dish-map center="vm.map.center" height="100%" width="100%" defaults="vm.map.defaults" layers="vm.map.layers" event-broadcast="vm.map.events"></dish-map>
+	<div class="location-bubble {{vm.location ? 'active' : ''}}">
+		<div class="location-bubble-loading {{vm.loading ? 'active' : ''}}"></div>
+		<div class="location-bubble-text">{{vm.location}}</div>
+	</div>
+</div>

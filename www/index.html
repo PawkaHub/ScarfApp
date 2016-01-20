@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta name="format-detection" content="telephone=no">
+    <title>Dish</title>
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <link href="css/ionic.app.css" rel="stylesheet">
+    <link href="lib/leaflet/dist/leaflet.css" rel="stylesheet">
+    <link href="modules/dish-map/dish-map.geocoder.css" rel="stylesheet">
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- build:js build.js -->
+    <!-- Libraries -->
+    <script src="lib/moment/min/moment.min.js"></script>
+    <script src="lib/underscore/underscore-min.js"></script>
+    <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+    <script src="lib/ngstorage/ngStorage.min.js"></script>
+    <script src="lib/firebase/firebase.js"></script>
+    <script src="lib/firebase-util/dist/firebase-util-normalize.min.js"></script>
+    <script src="lib/angularfire/dist/angularfire.min.js"></script>
+    <script src="lib/leaflet/dist/leaflet.js"></script>
+
+    <!-- Components -->
+    <!-- init -->
+    <script src="components/app.js"></script>
+
+    <!-- bootstrap -->
+    <script src="components/dish-bootstrap/dish-bootstrap.module.js"></script>
+    <script src="components/dish-bootstrap/dish-bootstrap.config.js"></script>
+    <script src="components/dish-bootstrap/dish-bootstrap.constants.js"></script>
+    <script src="components/dish-bootstrap/dish-bootstrap.controller.js"></script>
+    <script src="components/dish-bootstrap/dish-bootstrap.run.js"></script>
+
+    <!-- timer -->
+    <script src="components/dish-timer/dish-timer.module.js"></script>
+    <script src="components/dish-timer/dish-timer.service.js"></script>
+
+    <!-- user -->
+    <script src="components/dish-user/dish-user.module.js"></script>
+    <script src="components/dish-user/dish-user.service.js"></script>
+
+    <!-- Modules -->
+
+    <!-- card -->
+    <script src="modules/dish-cards/dish-cards.module.js"></script>
+    <script src="modules/dish-cards/dish-cards.service.js"></script>
+    <script src="modules/dish-cards/dish-cards.directive.js"></script>
+
+    <!-- card events -->
+    <script src="modules/dish-cards/dish-cards.events.touch.js"></script>
+
+    <!-- card constraints -->
+    <script src="modules/dish-cards/dish-cards.constraints.cassowary.js"></script>
+    <script src="modules/dish-cards/dish-cards.constraints.manipulator.js"></script>
+    <script src="modules/dish-cards/dish-cards.constraints.box.js"></script>
+    <script src="modules/dish-cards/dish-cards.constraints.motionconstraint.js"></script>
+    <script src="modules/dish-cards/dish-cards.constraints.motioncontext.js"></script>
+    <script src="modules/dish-cards/dish-cards.constraints.multieditsolver.js"></script>
+
+    <!-- card physics -->
+    <script src="modules/dish-cards/dish-cards.physics.animate.js"></script>
+    <script src="modules/dish-cards/dish-cards.physics.friction.js"></script>
+    <script src="modules/dish-cards/dish-cards.physics.gravity.js"></script>
+    <script src="modules/dish-cards/dish-cards.physics.spring.js"></script>
+
+    <!-- card engine -->
+    <script src="modules/dish-cards/dish-cards.engine.helpers.js"></script>
+
+    <!-- alert -->
+    <script src="modules/dish-alert/dish-alert.module.js"></script>
+    <script src="modules/dish-alert/dish-alert.service.js"></script>
+
+    <!-- keyboard -->
+    <script src="modules/dish-keyboard/dish-keyboard.module.js"></script>
+    <script src="modules/dish-keyboard/dish-keyboard.directive.js"></script>
+    <script src="modules/dish-keyboard/dish-keyboard.service.js"></script>
+    <script src="modules/dish-keyboard/dish-keyboard-focus.directive.js"></script>
+
+    <!-- drawer -->
+    <script src="modules/dish-drawer/dish-drawer.module.js"></script>
+    <script src="modules/dish-drawer/dish-drawer.controller.js"></script>
+    <script src="modules/dish-drawer/dish-drawer.directive.js"></script>
+
+    <!-- sheet -->
+    <script src="modules/dish-sheet/dish-sheet.module.js"></script>
+    <script src="modules/dish-sheet/dish-sheet.service.js"></script>
+
+    <!-- photo -->
+    <script src="modules/dish-photo/dish-photo.module.js"></script>
+    <script src="modules/dish-photo/dish-photo.directive.js"></script>
+
+    <!-- gallery -->
+    <script src="modules/dish-gallery/dish-gallery.module.js"></script>
+    <script src="modules/dish-gallery/dish-gallery.service.js"></script>
+    <script src="modules/dish-gallery/dish-gallery.directive.js"></script>
+
+    <!-- input -->
+    <script src="modules/dish-input/dish-input.module.js"></script>
+    <script src="modules/dish-input/dish-input.validators.js"></script>
+    <script src="modules/dish-input/dish-input.directive.js"></script>
+
+    <!-- text -->
+    <script src="modules/dish-text/dish-text.module.js"></script>
+    <script src="modules/dish-text/dish-text.validators.js"></script>
+    <script src="modules/dish-text/dish-text.directive.js"></script>
+
+    <!-- more -->
+    <script src="modules/dish-more/dish-more.directive.js"></script>
+
+    <!-- time -->
+    <script src="modules/dish-time/dish-time.module.js"></script>
+    <script src="modules/dish-time/dish-time.service.js"></script>
+    <script src="modules/dish-time/dish-time.controller.js"></script>
+    <script src="modules/dish-time/dish-time.directive.js"></script>
+
+    <!-- map -->
+    <script src="modules/dish-map/dish-map.directive.js"></script>
+    <script src="modules/dish-map/dish-map.geocoder.js"></script>
+    <script src="modules/dish-map/dish-map-select.controller.js"></script>
+    <script src="modules/dish-map/dish-map-select.directive.js"></script>
+    <script src="modules/dish-map/dish-map-select.service.js"></script>
+
+    <!-- Views -->
+
+    <!-- home -->
+    <script src="views/dish-home/dish-home.module.js"></script>
+    <script src="views/dish-home/dish-home.controller.js"></script>
+
+    <!-- signup -->
+    <script src="views/dish-signup/dish-signup.module.js"></script>
+    <script src="views/dish-signup/dish-signup.service.js"></script>
+    <script src="views/dish-signup/dish-signup.directive.js"></script>
+    <script src="views/dish-signup/dish-signup.controller.js"></script>
+    <!-- endbuild -->
+
+  </head>
+  <body ng-app="dish" ng-controller="dishBootstrapController">
+    <ng-include src="&apos;views/dish-home/dish-home.html&apos;"></ng-include>
+    <dish-keyboard></dish-keyboard>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+<div class="dish-card dish-signup {{vm.signupActive() ? 'active' : ''}}">
+	<div class="dish-card-title">Join Scarf</div>
+	<dish-input id="firstName" ng-model="vm.user.name" placeholder="First and Last Name" constant-focus></dish-input>
+	<dish-input ng-model="vm.user.email" placeholder="Email" constant-focus></dish-input>
+	<dish-input ng-model="vm.user.password" placeholder="Password" constant-focus></dish-input>
+	<div class="dish-card-button" ng-click="vm.signup()">Signup</div>
+</div>

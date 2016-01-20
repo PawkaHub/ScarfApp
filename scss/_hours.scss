@@ -1,0 +1,96 @@
+//Gradients for each hour of the day, courtesy of Jordan Ranson and Peter Bork (http://codepen.io/Bork/pen/wJhEm)
+.hour0 {
+	@include background(linear-gradient(transparentize(#012459,0.2),transparentize(#001322,0.2)));
+}
+
+.hour1 {
+	@include background(linear-gradient(transparentize(#003972,0.2),transparentize(#001322,0.2)));
+}
+
+.hour2 {
+	@include background(linear-gradient(transparentize(#003972,0.2),transparentize(#001322,0.2)));
+}
+
+.hour3 {
+	@include background(linear-gradient(transparentize(#004372,0.2),transparentize(#00182b,0.2)));
+}
+
+.hour4 {
+	@include background(linear-gradient(transparentize(#004372,0.2),transparentize(#011d34,0.2)));
+}
+
+.hour5 {
+	@include background(linear-gradient(transparentize(#016792,0.3),transparentize(#00182b,0.3)));
+}
+
+.hour6 {
+	@include background(linear-gradient(transparentize(#07729f,0.3),transparentize(#042c47,0.3)));
+}
+
+.hour7 {
+	@include background(linear-gradient(transparentize(#12a1c0,0.3),transparentize(#07506e,0.3)));
+}
+
+.hour8 {
+	@include background(linear-gradient(transparentize(#74d4cc,0.4),transparentize(#1386a6,0.4)));
+}
+
+.hour9 {
+	@include background(linear-gradient(transparentize(#efeebc,0.4),transparentize(#61d0cf,0.4)));
+}
+
+.hour10 {
+	@include background(linear-gradient(transparentize(#fee154,0.4),transparentize(#a3dec6,0.4)));
+}
+
+.hour11 {
+	@include background(linear-gradient(transparentize(#fdc352,0.4),transparentize(#e8ed92,0.4)));
+}
+
+.hour12 {
+	@include background(linear-gradient(transparentize(#ffac6f,0.4),transparentize(#ffe467,0.4)));
+}
+
+.hour13 {
+	@include background(linear-gradient(transparentize(#fda65a,0.4),transparentize(#ffe467,0.4)));
+}
+
+.hour14 {
+	@include background(linear-gradient(transparentize(#fd9e58,0.4),transparentize(#ffe467,0.4)));
+}
+
+.hour15 {
+	@include background(linear-gradient(transparentize(#f18448,0.4),transparentize(#ffd364,0.4)));
+}
+
+.hour16 {
+	@include background(linear-gradient(transparentize(#f06b7e,0.4),transparentize(#f9a856,0.4)));
+}
+
+.hour17 {
+	@include background(linear-gradient(transparentize(#ca5a92,0.4),transparentize(#f4896b,0.4)));
+}
+
+.hour18 {
+	@include background(linear-gradient(transparentize(#5b2c83,0.4),transparentize(#d1628b,0.4)));
+}
+
+.hour19 {
+	@include background(linear-gradient(transparentize(#371a79,0.4),transparentize(#713684,0.4)));
+}
+
+.hour20 {
+	@include background(linear-gradient(transparentize(#28166b,0.3),transparentize(#45217c,0.3)));
+}
+
+.hour21 {
+	@include background(linear-gradient(transparentize(#192861,0.3),transparentize(#372074,0.3)));
+}
+
+.hour22 {
+	@include background(linear-gradient(transparentize(#040b3c,0.3),transparentize(#233072,0.3)));
+}
+
+.hour23 {
+	@include background(linear-gradient(transparentize(#040b3c,0.3),transparentize(#012459,0.3)));
+}

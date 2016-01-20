@@ -1,0 +1,119 @@
+<div class="home hour{{vm.time.hour}}" ng-controller="dishHomeController as vm">
+	<div class="version-debug">a0.0.1</div>
+	<!--<div class="header-icon icon ion-navicon left {{vm.showNav() ? '' : 'blurred'}}" dish-drawer-open></div>
+	<div class="header">
+		<div class="header-title time {{vm.showHeader() ? 'active' : ''}} {{vm.hideHeader() ? 'hidden' : ''}}" ng-click="vm.showTime()">Ordering for {{vm.time.formatted}}</div>
+		<div class="header-subtitle location {{vm.showSubHeader() ? 'active' : ''}} {{vm.hideSubHeader() ? 'hidden' : ''}}" ng-click="vm.showMap()">
+			<div class="header-subtitle-text">{{vm.location()}}</div>
+		</div>
+	</div>
+	<dish-time></dish-time>
+	<dish-map-select></dish-map-select>
+	<div class="header-icon icon ion-ios-plus-empty right {{vm.showClose() ? 'close' : ''}}" ng-click="vm.toggleModal()"></div>-->
+	<div class="waiting-notice {{vm.showLoading() ? 'active' : ''}}">
+		Loading Meals...
+	</div>
+	<div class="waiting-notice {{vm.showEmpty() ? 'active' : ''}}">
+		No Meals Currently Available.
+	</div>
+	<div class="card-holder {{vm.showCards() ? '' : 'blurred'}}" card-repeat="meal in vm.meals track by $index">
+		<div class="card {{vm.mealsLoaded ? 'loaded' : ''}}">
+			<div class="index-note looped-note">Data: {{$dataIndex}}</div>
+			<div class="index-note top-note">Last: {{$last}}</div>
+			<div class="index-note bottom-note">{{meal.name}}</div>
+			<div class="index-note looped-note top-section">Data: {{$dataIndex}}</div>
+			<div class="index-note top-note top-section">Last: {{$last}}</div>
+			<div class="index-note bottom-note top-section">{{meal.name}}</div>
+			<!--<div class="card-preview">
+				<div class="card-preview-content" ng-click="vm.viewMeal(meal)">
+					<div class="masthead-banner">
+						{{meal.hidden}}
+						<div class="card-title">{{meal.name}}</div>
+						<div class="card-subtitle {{meal.verified ? 'verified' : ''}}">By {{meal.cook.username}}</div>
+						<div class="ratings">
+							<div class="rating"></div>
+							<div class="rating"></div>
+							<div class="rating"></div>
+							<div class="rating"></div>
+							<div class="rating"></div>
+						</div>
+					</div>
+					<div class="masthead" style="background-image:url({{meal.photo}});"></div>
+				</div>
+			</div>
+			<div class="card-button" ng-click="vm.purchase(meal)">
+				<div class="delivery-options-holder">
+					<div class="delivery-options">
+						<div class="delivery-option pickup {{meal.cook.pickup.enabled ? 'active' : ''}}">
+							<div class="delivery-option-price">$0</div>
+						</div>
+						<div class="delivery-option delivery {{meal.cook.delivery.enabled ? 'active' : ''}}">
+							<div class="delivery-option-price">{{meal.cook.delivery.price}}</div>
+						</div>
+						<div class="delivery-option dine-in {{meal.cook.dineIn.enabled ? 'active' : ''}}">
+							<div class="delivery-option-price">{{meal.cook.dineIn.price}}</div>
+						</div>
+					</div>
+				</div>
+				<div class="card-button-label">${{meal.price}}</div>
+			</div>-->
+		</div>
+	</div>
+	<!--<div class="footer {{vm.showFooter() ? '' : 'blurred'}}" ng-click="vm.toggleModal()">Become a Cook</div>-->
+	<div class="modal-card-overlay {{vm.buyingMeal ? 'active' : ''}}">
+		<div class="modal-card-icon right" ng-click="vm.toggleModal()"></div>
+		<div class="modal-card">
+			<div class="modal-card-title">Pick Delivery Options</div>
+			<div class="modal-card-button">Order Meal</div>
+		</div>
+	</div>
+	<div class="modal-card-post {{vm.canPost() ? 'active' : ''}}" ng-click="vm.postMeal()">
+		Post Meal
+	</div>
+	<dish-signup></dish-signup>
+	<div class="modal-card-overlay {{vm.addingMeal ? 'active' : ''}}">
+		<div class="modal-card-icon right" ng-click="vm.toggleModal()"></div>
+		<div class="modal-card">
+			<div class="modal-card-button-title">
+				<dish-input placeholder="Meal Name" ng-model="vm.meal.name"></dish-input>
+			</div>
+			<div class="modal-card-button-price">
+				<dish-input class="modal-card-button-price-input" placeholder="$0.00" ng-model="vm.meal.price"></dish-input>
+			</div>
+			<div class="modal-card-button-options">
+				<div class="modal-card-button-option">Portions</div>
+				<div class="modal-card-button-option">Prep</div>
+				<div class="modal-card-button-option">Ready</div>
+			</div>
+			<dish-photo class="modal-card-photo" ng-model="vm.meal.photo"></dish-photo>
+			<ion-content class="modal-card-content" scrollbar-y="false">
+				<div class="dish-text-holder">
+					<dish-text placeholder="Meal Description" ng-model="vm.meal.description"></dish-text>
+				</div>
+			</ion-content>
+		</div>
+	</div>
+	<div class="modal-card-overlay {{vm.signingUp ? 'active' : ''}}">
+		<div class="modal-card-icon right" ng-click="vm.toggleModal()"></div>
+		<div class="modal-card">
+			<div class="modal-card-title">Coming Soon</div>
+			<div class="coming-soon-notice">As this version of Dish is currently in a very early pre-alpha stage, the ability to become a cook is not fully baked into the app yet. As an early tester with Dish, please do feel free to check in on this section in subsequent builds!</div>
+		</div>
+	</div>
+</div>
+<dish-drawer side="left">
+	<div class="drawer-dismiss" dish-drawer-close></div>
+  <div class="drawer-content">
+  	<div class="drawer-header coming-soon">
+  		<div class="drawer-icon"></div>
+  		<div class="drawer-title">User Name</div>
+  	</div>
+    <div class="drawer-item history-icon coming-soon">History</div>
+    <div class="drawer-item free-meals-icon coming-soon">Free Meals
+    	<div class="coming-soon-text"></div>
+    </div>
+    <div class="drawer-item promotions-icon coming-soon">Promotions</div>
+    <div class="drawer-item help-icon coming-soon">Help</div>
+    <div class="drawer-item settings-icon coming-soon">Settings</div>
+  </div>
+</dish-drawer>

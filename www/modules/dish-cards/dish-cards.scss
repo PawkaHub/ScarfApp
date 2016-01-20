@@ -1,0 +1,355 @@
+//Dish Cards
+.card-holder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: left;
+  @include transform-origin(0,0);
+  will-change: transform;
+  pointer-events: none;
+  opacity: 1;
+  &.active {
+  	.card {
+  		&.loaded {
+  			pointer-events: auto;
+	  		.card-preview {
+	  			opacity: 0;
+	  		}
+	  		.card-content-holder {
+	  			pointer-events: auto;
+	  			.card-banner, .card-info {
+	  				@include transform($torigin);
+	  			}
+	  		}
+  		}
+  	}
+  }
+  &.blurred {
+  	pointer-events: none;
+  	.card {
+  		opacity: 0!important;
+  		@include transform(translate3d(0,100px,0)!important);
+			pointer-events: none!important;
+  	}
+  }
+  .card {
+  	@include full(9);
+  	//margin: 0 10px;
+  	margin: 10px;
+  	@include transition($all);
+		@include transform(translate3d(0,100px,0));
+		background-color: $secondTint;
+		@include box-shadow(0 0 1px rgba(51, 51, 51, 0.3));
+		//@include box-shadow(none);
+		//background-color: transparent;
+		border-radius: 2px;
+  	color: #333;
+		opacity: 0;
+		pointer-events: none;
+		.card-banner {
+			text-align: center;
+			padding: 10px;
+			.card-banner-close {
+				@include icon(40px);
+				font-size: 30px;
+				color: #fff;
+				position: absolute;
+				top: 0;
+				right: 0;
+				opacity: 0.6;
+				&:before {
+					content: '\f404';
+					font-family: 'ionicons';
+				}
+			}
+		}
+		&.loaded {
+			opacity: 1;
+			@include transform($sorigin);
+			.change {
+				opacity: 1;
+				pointer-events: auto;
+				&.changing {
+					opacity: 0;
+					pointer-events: none;
+				}
+			}
+		}
+		.card-title {
+			font-size: 20px;
+			text-align: center;
+			margin-bottom: 5px;
+		}
+		.verified {
+			&:before {
+				color: transparentize(#333,0.3);
+				content: '\f3ff';
+				font-family: 'ionicons';
+				margin-right: 5px;
+				font-size: smaller;
+			}
+		}
+		.card-subtitle {
+			text-align: center;
+			opacity: 0.75;
+		}
+		.card-content-holder {
+			@include full(0);
+			bottom: 60px;
+			pointer-events: none;
+			.card-banner {
+				@include transition($all);
+				@include transform($up);
+				background-color: $brandTint;
+				color: #fff;
+				padding-bottom: 35px;
+				.verified {
+					&:before {
+						color: #fff;
+					}
+				}
+			}
+			.card-content {
+				top: 90px;
+			}
+			.card-info {
+				@include transition($all);
+				@include transform($down);
+				background-color: #fff;
+			}
+		}
+		.card-preview {
+			//@include transition($all);
+			@include full(0);
+			bottom: 60px;
+			opacity: 1;
+			.card-preview-content {
+				@include full(0);
+				@include display(flex);
+				@include align-items(center);
+				@include justify-content(center);
+			}
+		}
+		.masthead {
+			@include full(0);
+			top: 90px;
+			@include cover('');
+			@include dots;
+			background-color: #111;
+		}
+		.masthead-banner {
+			padding: 10px;
+			position: absolute;
+			top: 0;
+			right: 0;
+			left: 0;
+			height: 90px;
+			background-color: #fafafa;
+			color: transparentize(#333,0.3);
+		}
+		.masthead-row {
+			@include display(flex);
+			height: 25%;
+		}
+		.masthead-col {
+			@include flex(1);
+			@include cover('');
+			background-color: #111;
+		}
+		.change {
+			@include transition($all);
+			opacity: 0;
+			pointer-events: none;
+		}
+		.card-gallery {
+			height: 200px;
+			background-color: #111;
+		}
+		.card-section-title {
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			background-color: $secondTint;
+		}
+		.description {
+			padding: 10px;
+			font-size: 14px;
+			line-height: 1.4;
+			text-overflow: ellipsis;
+			overflow: hidden;
+		}
+		.delivery-options {
+      @include display(flex);
+	    height: 20px;
+	    max-width: 110px;
+	    width: 100%;
+	    position: absolute;
+	    bottom: 6px;
+	    left: 5px;
+			.delivery-option {
+		    @include flex(1,100px);
+		    width: 100%;
+		    max-width: 100px;
+		    height: 20px;
+		    line-height: 20px;
+		    text-align: left;
+		    font-size: 14px;
+		    position: relative;
+		    margin: 0 4px;
+				&:before {
+					font-family: 'ionicons';
+				}
+				&.pickup {
+					margin-right: 0;
+					&:before {
+						content: '\f3bb';
+					}
+				}
+				&.delivery {
+					&:before {
+						content: '\f36f';
+					}
+				}
+				&.dine-in {
+					&:before {
+						content: '\f3aa';
+					}
+				}
+			}
+			.delivery-option-price {
+				font-size: 10px;
+				display: inline-block;
+				position: relative;
+				top: -2px;
+			}
+		}
+		.contact-options {
+	    @include display(flex);
+	    height: 16px;
+	    color: $brandTint;
+	    max-width: 65px;
+	    position: absolute;
+	    right: 0;
+	    bottom: 13px;
+	    left: 0;
+	    width: 100%;
+	    margin: 0 auto;
+			.contact-option {
+				@include tap;
+				@include flex(1,16px);
+		    max-width: 16px;
+		    height: 16px;
+		    line-height: 16px;
+		    text-align: center;
+		    font-size: 10px;
+		    margin: 0 auto;
+		    background-color: #fff;
+		    border-radius: 50%;
+		    position: relative;
+		    color: inherit;
+		    text-decoration: none;
+				&:before {
+					font-family: 'ionicons';
+				}
+				&.phone {
+					&:before {
+						content: '\f4b9';
+					}
+				}
+				&.text {
+					&:before {
+						content: '\f3fc';
+					}
+				}
+				&.address {
+					&:before {
+						content: '\f456';
+					}
+				}
+			}
+		}
+		.ratings {
+			@include display(flex);
+			max-width: 100px;
+			margin: 0 auto;
+			font-size: 12px;
+			.rating {
+				@include flex(1);
+				&:before {
+					font-family: 'ionicons';
+					content: '\f3ae';
+				}
+				&.half {
+					&:before {
+						content: '\f3ad';
+					}
+				}
+				&.full {
+					&:before {
+						content: '\f2fc';
+					}
+				}
+			}
+		}
+		.card-button {
+			@include bottom(0);
+			height: 60px;
+			background-color: #fff;
+			text-align: center;
+			color: transparentize(#333,0.3);
+		}
+		.card-button-label {
+			@include bottom(0);
+			@include button(40px,#fafafa,transparentize(#333,0.3));
+		}
+		.card-progress {
+			@include full(0);
+			@include button(30px,red,#fff);
+		}
+		.delivery-options-holder {
+			@include top(0);
+			height: 20px;
+	    background-color: #eaeaea;
+	    color: transparentize(#333,0.3);
+			.delivery-options {
+				@include top(0);
+				margin: 0 auto;
+			}
+		}
+  }
+}
+
+//Debug
+.index-note {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	font-size: 14px;
+	text-align: left;
+	width: 40px;
+	padding: 5px;
+	&.looped-note {
+		left: 15px;
+		width: 200px;
+		text-align: left;
+	}
+	&.top-note {
+		left: 110px;
+		width: 200px;
+		text-align: left;
+	}
+	&.middle-note {
+		left: 160px;
+		width: 200px;
+		text-align: left;
+	}
+	&.bottom-note {
+		left: 220px;
+		width: 200px;
+		text-align: left;
+	}
+	&.top-section {
+		top: 0;
+		bottom: auto;
+	}
+}

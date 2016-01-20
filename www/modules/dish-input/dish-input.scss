@@ -1,0 +1,50 @@
+//Dish Input
+.dish-input {
+	width: 100%;
+	height: 40px;
+	padding: 10px;
+	margin: 0;
+	border: none;
+	border-radius: 0;
+	background-color: #fff;
+	background-image: none;
+	&.dish-text {
+		position: relative;
+		textarea {
+			height: 100%;
+			padding: 15px 15px 15px 0;
+			resize: none;
+		}
+	}
+	.input-icon {
+		@include transition($all);
+		@include transform($hidden);
+		@include icon(30px);
+		opacity: 0;
+    position: absolute;
+    top: 4px;
+    right: 7px;
+	}
+	input, textarea {
+		padding: 0;
+		padding-right: 12px;
+		&::-webkit-input-placeholder {
+			color: rgba(0,0,0,0.3);
+		}
+		&.ng-dirty {
+			&.ng-invalid {
+				& ~ .error {
+					opacity: 1;
+					@include transform($sorigin);
+				}
+			}
+			&.ng-valid {
+				& ~ .success {
+					opacity: 1;
+					color: $brandTint;
+					@include transform($sorigin);
+				}
+			}
+		}
+	}
+}

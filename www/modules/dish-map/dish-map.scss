@@ -1,0 +1,64 @@
+//Dish Map
+.dish-map {
+  @include full(0);
+  background-color: #fafafa;
+  opacity: 0;
+  pointer-events: none;
+  @include transition($all);
+  &.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .location-bubble {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    @include vertCenter;
+    margin-top: -70px;
+    background-color: $brandTint;
+    border-radius: 20px;
+    box-shadow: 0 0 5px transparentize(#333,0.3);
+    @include transition($all);
+    width: 40px;
+    .location-bubble-loading {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      border: 1px dashed #fff;
+      @include transition($all);
+      @include animation(spin 2s linear infinite);
+      opacity: 0;
+      &.active {
+        opacity: 1;
+      }
+    }
+    .location-bubble-text {
+      white-space: nowrap;
+      overflow: hidden;
+      padding: 0 40px 0 40px;
+      text-overflow: ellipsis;
+    }
+    &.active {
+      width: 260px;
+    }
+    &:after {
+      content: '';
+      height: 30px;
+      width: 2px;
+      background-color: $brandTint;
+      position: absolute;
+      top: 40px;
+      right: 0;
+      left: 0;
+      margin: 0 auto;
+    }
+  }
+  //Workaround to prevent control layers from showing up when using custom tilesets
+  .leaflet-control-layers {
+    display: none;
+  }
+}

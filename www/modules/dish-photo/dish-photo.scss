@@ -1,0 +1,25 @@
+//Dish Photo
+.photo {
+	@include display(flex);
+	@include align-items(center);
+	@include justify-content(center);
+	position: relative;
+	&:before {
+		content: '\f3f6';
+		font-family: 'ionicons';
+		max-width: 80px;
+		height: 80px;
+		line-height: 80px;
+		text-align: center;
+		font-size: 60px;
+		background-color: #fff;
+		border-radius: 50%;
+		color: #111;
+		@include flex(1);
+		opacity: 0.5;
+	}
+	.uploaded-photo {
+		@include full(0);
+		@include cover('');
+	}
+}

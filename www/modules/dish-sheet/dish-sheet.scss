@@ -1,0 +1,24 @@
+//Dish Sheet
+.action-sheet-wrapper {
+	.action-sheet {
+		margin: 0;
+		background-color: $secondTint;
+		.action-sheet-group {
+			border-radius: 0;
+			background-color: transparent;
+			margin: 0;
+			.button {
+				border-radius: 0;
+				border: none;
+				border-bottom: 1px solid rgba(0,0,0,0.1);
+				color: #bbb;
+			}
+			&.action-sheet-cancel {
+				background-color: $assertive;
+				.button {
+					color: #fff;
+				}
+			}
+		}
+	}
+}

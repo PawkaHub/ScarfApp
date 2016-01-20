@@ -1,0 +1,169 @@
+//Dish Home
+.home {
+	@include full(9);
+	margin: auto;
+  overflow: hidden;
+  background-color: #fafafa;
+}
+//Header Icons
+.header-icon {
+	@include icon(30px);
+	font-size: 20px;
+	color: transparentize(#333,0.3);
+	position: absolute;
+	top: 26px;
+	z-index: 10;
+	height: 40px;
+	width: 40px;
+	line-height: 40px;
+	@include transition($all);
+	&.blurred {
+		pointer-events: none;
+		opacity: 0;
+	}
+	&:before {
+		@include transition($all);
+	}
+	&.close {
+		&:before {
+			@include transform($rotate);
+		}
+	}
+	&.left {
+		left: 10px;
+		text-align: center;
+		border-top-left-radius: 2px;
+	}
+	&.right {
+		right: 10px;
+		text-align: center;
+		font-size: 24px;
+		border-top-right-radius: 2px;
+	}
+}
+.header {
+	position: absolute;
+	z-index: 9;
+	top: 26px;
+	right: 10px;
+	left: 10px;
+}
+.header-title {
+	position: absolute;
+	z-index: 9;
+	top: 0;
+	right: 0;
+	left: 0;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	font-size: 15px;
+	border-radius: 2px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	box-shadow: 0 0 1px transparentize(#333,0.7);
+	@include transition($all);
+	@include transform(translate3d(0,40px,0));
+	background-color: #eaeaea;
+	color: transparentize(#333,0.3);
+	&.active {
+		@include transform(translate3d(0,0,0));
+		background-color: #fafafa;
+		color: #333;
+		border-radius: 2px;
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+	&.hidden {
+		@include transform(translate3d(0,-100px,0));
+		opacity: 0;
+		pointer-events: none;
+	}
+}
+.header-subtitle {
+	position: absolute;
+	z-index: 8;
+	top: 40px;
+	right: 0;
+	left: 0;
+	height: 40px;
+	line-height: 40px;
+	color: transparentize(#333,0.3);
+	text-align: center;
+	font-size: 14px;
+	background-color: #eaeaea;
+	border-radius: 2px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	@include transition($all);
+	box-shadow: 0 0 1px transparentize(#333,0.7);
+	&.active {
+		color: #333;
+		border-radius: 2px;
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+		background-color: #fafafa;
+		@include transform(translate3d(0,-40px,0));
+	}
+	&.hidden {
+		@include transform(translate3d(0,-100px,0));
+		opacity: 0;
+		pointer-events: none;
+	}
+	.header-subtitle-text {
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		padding: 0 28px 0 10px;
+	}
+}
+.footer {
+	background-color: #fff;
+	height: 50px;
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	z-index: 999;
+	text-align: center;
+	line-height: 50px;
+	@include transition($all);
+	&.blurred {
+		pointer-events: none;
+		@include transform(translate3d(0,100px,0));
+	}
+}
+.coming-soon {
+	pointer-events: none;
+	opacity: 0.5;
+	position: relative;
+}
+.coming-soon-text, .coming-soon {
+	&:after{
+		content: 'Coming Soon';
+		font-size: 10px;
+		position: absolute;
+		top: 0;
+		right: 15px;
+		line-height: 50px;
+		height: 50px;
+	}
+}
+
+//Waiting Notice
+.waiting-notice {
+	height: 40px;
+	width: 100%;
+	@include vertCenter;
+	margin-top: -20px;
+	color: #fff;
+	font-size: 20px;
+	text-align: center;
+	opacity: 0;
+	@include transition($all);
+	@include transform($hidden);
+	&.active {
+		@include transform($normalScale);
+		opacity: 1;
+	}
+}

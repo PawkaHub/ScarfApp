@@ -1,0 +1,19 @@
+//Dish Gallery
+.dish-gallery {
+	background-color: #111;
+	.dish-gallery-slide {
+		height: 200px;
+		@include cover('');
+	}
+	.slider-pager {
+		right: 0;
+		bottom: 7px;
+		width: 50px;
+		.slider-pager-page {
+			color: #fff;
+			margin: 0;
+	    font-size: 6px;
+	    width: 9px;
+		}
+	}
+}
